@@ -93,14 +93,20 @@ class GamePage extends React.Component {
     return (
       <Layout>
         <HistoryContainer>
-          <History userHistory={this.state.userHistory} />
+          <div>
+            <Title>Historia:</Title>
+            <History userHistory={this.state.userHistory} />
+          </div>
           <ImageGif src={totoro} alt="totoroGif" />
         </HistoryContainer>
         <OptionsContainer>
-          <Options
-            chooseAdventure={information[this.state.index]}
-            onSelectOption={this.handlerSelectOption}
-          />
+          <div>
+            <TitleOptions>Seleccioné opción A o B:</TitleOptions>
+            <Options
+              chooseAdventure={information[this.state.index]}
+              onSelectOption={this.handlerSelectOption}
+            />
+          </div>
           <ResetAll onSelectReset={this.handlerSelectReset} />
           <Elections selectionsList={this.state.userSelections} />
         </OptionsContainer>
@@ -137,6 +143,7 @@ const HistoryContainer = styled.section`
   grid-area: history;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   border: dashed 1px gray;
   padding: 10px;
   background-color: #e9e9e9;
@@ -155,6 +162,13 @@ const HistoryContainer = styled.section`
     padding: 35px;
     justify-content: space-between;
   }
+`;
+const Title = styled.h3`
+  color: rgb(0, 0, 0);
+  margin-bottom: 1rem;
+`;
+const TitleOptions = styled.h3`
+  margin-bottom: 1rem;
 `;
 const OptionsContainer = styled.section`
   grid-area: options;
